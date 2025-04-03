@@ -16,8 +16,10 @@ export const templateStyle = style({
 
 export const contentStyle = style({
   display: "flex",
-  width: "100%",
+  width: "100vw",
+  justifyContent: "center",
   background: "white",
+  overflow: "hidden",
 
   "@media": {
     "screen and (min-width: 400px)": {

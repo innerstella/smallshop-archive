@@ -1,0 +1,6 @@
+export enum SERVICE_STATE {
+  OFFLINE = "오프라인",
+  ONLINE = "온라인",
+}
+
+export const SERVICE_STATE_LIST = [SERVICE_STATE.OFFLINE, SERVICE_STATE.ONLINE]
