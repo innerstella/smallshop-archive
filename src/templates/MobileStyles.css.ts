@@ -16,7 +16,8 @@ export const templateStyle = style({
 
 export const contentStyle = style({
   display: "flex",
-  width: "100vw",
+  // width: "100vw",
+  width: "100%",
   justifyContent: "center",
   background: "white",
   overflow: "hidden",

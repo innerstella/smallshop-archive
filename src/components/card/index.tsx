@@ -11,7 +11,6 @@ interface StoreCardProps {
 }
 
 export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
-  console.log(serviceState)
   return (
     <Box maxWidth="350px">
       <Card>

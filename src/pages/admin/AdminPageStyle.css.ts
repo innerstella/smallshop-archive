@@ -3,6 +3,7 @@ import { style } from "@vanilla-extract/css"
 export const AdminWrapper = style({
   width: "90%",
   overflowY: "scroll",
+  paddingBottom: "30px",
 })
 
 export const inputStyle = style({

@@ -1,6 +1,14 @@
 import { CategoryType } from "../types/category.type"
 import { ServiceStateType } from "../types/service.type"
 import { SERVICE_STATE } from "./service"
+import YARD_ICON from "../assets/icon/yard.svg"
+import MENU_BOOK_ICON from "../assets/icon/menu-book.svg"
+import CAFE_ICON from "../assets/icon/cafe.svg"
+import SHOPPING_CART_ICON from "../assets/icon/shopping-cart.svg"
+import GROCERY_ICON from "../assets/icon/shopping-cart.svg"
+import BUBBLE_ICON from "../assets/icon/bubble.svg"
+import RESTAURANT_ICON from "../assets/icon/restaurant.svg"
+import CHEF_ICON from "../assets/icon/chef.svg"
 
 export enum CATEGORY {
   RESTAURANT = "음식점",
@@ -22,4 +30,15 @@ export const CATEGORY_LIST: Record<ServiceStateType, CategoryType[]> = {
     CATEGORY.HYGIENE,
     CATEGORY.KITCHENWARE,
   ],
+}
+
+export const CATEGORY_ICON_LIST: Record<string, string> = {
+  [CATEGORY.RESTAURANT]: RESTAURANT_ICON,
+  [CATEGORY.CAFE]: CAFE_ICON,
+  [CATEGORY.LIFE]: MENU_BOOK_ICON,
+  [CATEGORY.FRUITS]: YARD_ICON,
+  [CATEGORY.DAILY_GOODS]: SHOPPING_CART_ICON,
+  [CATEGORY.FOOD]: GROCERY_ICON,
+  [CATEGORY.HYGIENE]: BUBBLE_ICON,
+  [CATEGORY.KITCHENWARE]: CHEF_ICON,
 }

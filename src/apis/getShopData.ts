@@ -11,7 +11,6 @@ export const getShopData = async (
 ): Promise<StoreData[]> => {
   const collectionName =
     serviceState === SERVICE_STATE.OFFLINE ? "offlineShop" : "onlineShop"
-  console.log(category)
   try {
     // ✅ 처음부터 query()를 사용해서 변수 선언
     const shopQuery = category
