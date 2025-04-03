@@ -1,4 +1,4 @@
-import { TabNav } from "@radix-ui/themes"
+import { Flex, Spinner, TabNav } from "@radix-ui/themes"
 import { Header } from "../../components/header"
 import { MainWrapper } from "./MainStyles.css"
 import { useEffect, useState } from "react"
@@ -8,7 +8,8 @@ import { CATEGORY, CATEGORY_LIST } from "../../constants/category"
 import { SERVICE_STATE, SERVICE_STATE_LIST } from "../../constants/service"
 import { ServiceStateType } from "../../types/service.type"
 import { StoreCard } from "../../components/card"
-import { offlineDummyData, onlineDummyData } from "../../data/dummyData"
+import { getShopData } from "../../apis/getShopData"
+import { StoreData } from "../../types/data.type"
 
 export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
@@ -19,6 +20,8 @@ export const MainPage = () => {
       ? CATEGORY.RESTAURANT
       : CATEGORY.FRUITS
   )
+  const [storeData, setStoreData] = useState<StoreData[]>([]) // 리스트 상태 추가
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     setCurrCategory(
@@ -28,8 +31,22 @@ export const MainPage = () => {
     )
   }, [serviceState])
 
-  const dummyData =
-    serviceState === SERVICE_STATE.OFFLINE ? offlineDummyData : onlineDummyData
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true)
+
+      try {
+        const data: StoreData[] = await getShopData(serviceState, currCategory)
+        setStoreData(data || []) // 가져온 데이터를 상태에 저장
+      } catch (error) {
+        console.error("데이터 가져오기 실패:", error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    fetchData()
+  }, [serviceState, currCategory])
 
   return (
     <div className={MainWrapper}>
@@ -63,9 +80,18 @@ export const MainPage = () => {
         })}
       </TabNav.Root>
       <Spacer height={20} />
-      {dummyData.map((data) => (
-        <StoreCard data={data} serviceState={serviceState} />
-      ))}
+      {isLoading ? (
+        <Flex direction={"column"} justify={"center"} align={"center"}>
+          <Spacer height={200} />
+          <Spinner size="3" />
+        </Flex>
+      ) : (
+        <Flex direction={"column"} justify={"start"} align={"start"} gap={"3"}>
+          {storeData.map((data) => (
+            <StoreCard data={data} serviceState={serviceState} />
+          ))}
+        </Flex>
+      )}
     </div>
   )
 }

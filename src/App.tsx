@@ -2,14 +2,14 @@ import "./App.css"
 import "@radix-ui/themes/styles.css"
 import Template from "./templates/Mobile"
 import { Theme } from "@radix-ui/themes"
-import { MainPage } from "./pages/main"
+import AppRouter from "./Router"
 
 function App() {
   return (
     <>
       <Theme accentColor="jade">
         <Template>
-          <MainPage />
+          <AppRouter />
         </Template>
       </Theme>
     </>

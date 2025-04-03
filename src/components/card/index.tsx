@@ -20,7 +20,9 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
             <Text as="p" size="4" weight="bold">
               {data.name}
             </Text>
-            <img src={VerifyIcon} alt="인증됨" width="16px" />
+            {data.isVerified && (
+              <img src={VerifyIcon} alt="인증됨" width="16px" />
+            )}
           </Flex>
           <Link href={data.mapLink} target="_blank">
             <Button>
