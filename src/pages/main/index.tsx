@@ -86,7 +86,7 @@ export const MainPage = () => {
         })}
       </TabNav.Root>
       <Spacer height={10} />
-      <TabNav.Root>
+      <TabNav.Root size={"1"}>
         {CATEGORY_LIST[serviceState].map((category, idx) => {
           return (
             <TabNav.Link
