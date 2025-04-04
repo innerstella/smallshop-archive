@@ -1,21 +1,21 @@
-import { Flex, Spinner, TabNav, Text, TextField } from "@radix-ui/themes"
+import { Flex, Spinner } from "@radix-ui/themes"
 import { Header } from "../../components/header"
-import { EmptyWrapper, IconStyle, MainWrapper } from "./MainStyles.css"
+import { MainWrapper, ScrollWrapper } from "./MainStyles.css"
 import { useEffect, useState } from "react"
 import { Spacer } from "../../components/spacer"
 import { CategoryType } from "../../types/category.type"
-import {
-  CATEGORY,
-  CATEGORY_ICON_LIST,
-  CATEGORY_LIST,
-} from "../../constants/category"
-import { SERVICE_STATE, SERVICE_STATE_LIST } from "../../constants/service"
+import { CATEGORY } from "../../constants/category"
+import { SERVICE_STATE } from "../../constants/service"
 import { ServiceStateType } from "../../types/service.type"
 import { StoreCard } from "../../components/card"
 import { getShopData } from "../../apis/getShopData"
 import { StoreData } from "../../types/data.type"
-import SEARCH_ICON from "../../assets/icon/search.svg"
-import EMPTY_ICON from "../../assets/icon/empty.svg"
+import { Banner } from "../../components/banner"
+import { Info } from "../../components/info"
+import { EmptyBox } from "../../components/empty"
+import { SearchInput } from "../../components/search"
+import { ServiceStateNav } from "../../components/nav/serviceState"
+import { CategoryNav } from "../../components/nav/category"
 
 export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
@@ -63,61 +63,34 @@ export const MainPage = () => {
     <div className={MainWrapper}>
       <Header />
       <Spacer height={50} />
-      <TextField.Root
-        placeholder="장소를 입력하세요"
-        onChange={(e) => setSearch(e.target.value)}
-      >
-        <TextField.Slot>
-          <img src={SEARCH_ICON} />
-        </TextField.Slot>
-      </TextField.Root>
+      <Info />
+      <Spacer height={20} />
+      <SearchInput setSearch={setSearch} />
       <Spacer height={10} />
-      <TabNav.Root color="orange">
-        {SERVICE_STATE_LIST.map((state, idx) => {
-          return (
-            <TabNav.Link
-              key={idx}
-              active={serviceState === state}
-              onClick={() => setServiceState(state)}
-            >
-              {state}
-            </TabNav.Link>
-          )
-        })}
-      </TabNav.Root>
+      <ServiceStateNav
+        serviceState={serviceState}
+        setServiceState={setServiceState}
+      />
       <Spacer height={10} />
-      <TabNav.Root size={"1"}>
-        {CATEGORY_LIST[serviceState].map((category, idx) => {
-          return (
-            <TabNav.Link
-              key={idx}
-              active={category === currCategory}
-              onClick={() => setCurrCategory(category)}
-            >
-              {category === currCategory && (
-                <>
-                  <img src={CATEGORY_ICON_LIST[currCategory]} />
-                  <Spacer width={5} height={10} />
-                </>
-              )}
-              {category}
-            </TabNav.Link>
-          )
-        })}
-      </TabNav.Root>
+      <CategoryNav
+        serviceState={serviceState}
+        currCategory={currCategory}
+        setCurrCategory={setCurrCategory}
+      />
       <Spacer height={20} />
       {isLoading ? (
-        <Flex direction={"column"} justify={"center"} align={"center"}>
-          <Spacer height={200} />
-          <Spinner size="3" />
-        </Flex>
+        <div className={ScrollWrapper}>
+          <Flex direction={"column"} justify={"center"} align={"center"}>
+            <Spacer height={200} />
+            <Spinner size="3" />
+          </Flex>
+        </div>
       ) : (
-        <Flex direction="column" justify="start" align="start" gap="3">
-          {storeData.filter((data) =>
-            data.address?.split(" ")[1]?.includes(search)
-          ).length > 0 ? (
+        <div className={ScrollWrapper}>
+          {storeData.filter((data) => data.address?.includes(search)).length >
+          0 ? (
             storeData
-              .filter((data) => data.address?.split(" ")[1]?.includes(search))
+              .filter((data) => data.address?.includes(search))
               .map((data) => (
                 <StoreCard
                   key={data.mapLink}
@@ -126,18 +99,13 @@ export const MainPage = () => {
                 />
               ))
           ) : (
-            <>
-              <Spacer height={10} />
-              <div className={EmptyWrapper}>
-                <center>
-                  <img src={EMPTY_ICON} alt="없음" className={IconStyle} />
-                </center>
-                <Text size="5">검색 결과 없음</Text>
-              </div>
-            </>
+            <EmptyBox />
           )}
-        </Flex>
+        </div>
       )}
+      <Spacer height={30} />
+      <Banner />
+      <Spacer height={200} />
     </div>
   )
 }

@@ -12,7 +12,7 @@ interface StoreCardProps {
 
 export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
   return (
-    <Box maxWidth="350px">
+    <Box width="360px">
       <Card>
         <Flex direction="row" justify="between" align="center" gap="10px">
           <Flex gap="3px" align="center">
@@ -45,12 +45,23 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
             </Text>
           </>
         )}
-        <Spacer height={5} />
-        <Link href={data.twitterLink}>
-          <Text as="p" size="1" truncate>
-            🔗 {data.twitterLink}
-          </Text>
-        </Link>
+        {data.twitterLink ? (
+          <>
+            <Spacer height={5} />
+            <Link href={data.twitterLink}>
+              <Text as="p" size="1" truncate>
+                🔗 {data.twitterLink}
+              </Text>
+            </Link>
+          </>
+        ) : (
+          <>
+            <Spacer height={5} />
+            <Text as="p" size="1" truncate>
+              🔗 오픈 카톡 제보
+            </Text>
+          </>
+        )}
       </Card>
     </Box>
   )

@@ -5,17 +5,17 @@ export const MainWrapper = style({
   flexDirection: "column",
   padding: "30px 20px 0",
   overflow: "hidden",
+  width: "100%",
+  height: "100vh",
 })
 
-export const EmptyWrapper = style({
-  width: "350px",
+export const ScrollWrapper = style({
+  width: "100%",
+  height: "100%",
+  overflowY: "scroll",
   display: "flex",
   flexDirection: "column",
   gap: "20px",
-  alignContent: "center",
-  justifyContent: "center",
-})
-
-export const IconStyle = style({
-  width: "100px",
+  justifyContent: "start",
+  alignItems: "center",
 })

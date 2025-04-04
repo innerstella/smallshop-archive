@@ -7,7 +7,10 @@ export const Header = () => {
     <header className={HeaderWrapper}>
       <img src={StoreIcon} />
       <Text size="5" weight="bold" style={{ color: "#4a5568" }}>
-        소담소상 : 소상공인업체 검색기
+        딸램 플레이스{" "}
+        <Text size="5" weight="medium" style={{ color: "#4a5568" }}>
+          : 소상공인업체 검색기
+        </Text>
       </Text>
     </header>
   )
