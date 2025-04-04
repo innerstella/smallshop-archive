@@ -12,7 +12,7 @@ interface StoreCardProps {
 
 export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
   return (
-    <Box width="360px">
+    <Box maxWidth="100%">
       <Card>
         <Flex direction="row" justify="between" align="center" gap="10px">
           <Flex gap="3px" align="center">

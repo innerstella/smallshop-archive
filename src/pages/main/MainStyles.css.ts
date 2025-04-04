@@ -6,7 +6,7 @@ export const MainWrapper = style({
   padding: "30px 20px 0",
   overflow: "hidden",
   width: "100%",
-  height: "100vh",
+  height: "100dvh",
 })
 
 export const ScrollWrapper = style({

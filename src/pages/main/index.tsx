@@ -105,7 +105,7 @@ export const MainPage = () => {
       )}
       <Spacer height={30} />
       <Banner />
-      <Spacer height={200} />
+      <Spacer height={100} />
     </div>
   )
 }
