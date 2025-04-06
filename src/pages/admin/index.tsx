@@ -14,7 +14,7 @@ export const AdminPage = () => {
   const nameInputRef = useRef<HTMLInputElement>(null)
   const serviceState = shopType === "offlineShop" ? "오프라인" : "온라인"
   const [storeData, setStoreData] = useState<StoreData>({
-    name: "",
+    name: nameInputRef.current?.value || "",
     address: "",
     description: "",
     twitterLink: "",
@@ -41,9 +41,18 @@ export const AdminPage = () => {
   }, [shopType])
 
   const addData = async () => {
+    const isConfirmed = confirm(`입력된 데이터를 등록할까요?`)
+    if (!isConfirmed) return
+
+    if (!nameInputRef.current?.value) {
+      alert("상호명을 입력해주세요")
+      return
+    }
+
     try {
       await addDoc(collection(db, shopType), {
         ...storeData,
+        name: nameInputRef.current?.value,
         createdAt: serverTimestamp(),
       })
 
@@ -162,7 +171,7 @@ export const AdminPage = () => {
               ref={nameInputRef}
               className={inputStyle}
               name={storeData.name}
-              onChange={handleChange}
+              // onChange={handleChange}
             />
             <Button size={"3"}>등록된 가게인지 확인하기</Button>
           </Flex>
