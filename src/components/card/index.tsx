@@ -28,7 +28,7 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
             <Text as="p" size="4" weight="bold">
               {data.name}
             </Text>
-            {data.isVerified && (
+            {data.isVerified && data.twitterLink && (
               <img src={VerifyIcon} alt="인증됨" width="16px" />
             )}
           </Flex>
@@ -64,7 +64,7 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
             </Text>
           </>
         )}
-        {data.twitterLink ? (
+        {data.twitterLink && (
           <>
             <Spacer height={5} />
             <Link href={data.twitterLink}>
@@ -72,13 +72,6 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
                 🔗 {data.twitterLink}
               </Text>
             </Link>
-          </>
-        ) : (
-          <>
-            <Spacer height={5} />
-            <Text as="p" size="1" truncate>
-              🔗 오픈 카톡 제보
-            </Text>
           </>
         )}
       </Card>

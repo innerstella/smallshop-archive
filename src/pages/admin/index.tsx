@@ -59,16 +59,7 @@ export const AdminPage = () => {
       alert("데이터가 성공적으로 등록되었습니다!")
 
       // 입력값 초기화
-      setStoreData({
-        name: "",
-        address: "",
-        description: "",
-        twitterLink: "",
-        mapLink: "",
-        phone: "",
-        isVerified: false,
-        category: CATEGORY_LIST[serviceState][0],
-      })
+      window.location.reload()
     } catch (error) {
       console.error("데이터 추가 오류:", error)
     }
