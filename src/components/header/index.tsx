@@ -1,7 +1,6 @@
-import { Flex, Text } from "@radix-ui/themes"
+import { Flex, IconButton, Text } from "@radix-ui/themes"
 import StoreIcon from "../../assets/icon/store.svg"
 import { HeaderWrapper } from "./HeaderStyle.css"
-import QuestionIcon from "../../assets/icon/question.svg"
 import { Link } from "react-router-dom"
 
 export const Header = () => {
@@ -21,12 +20,25 @@ export const Header = () => {
           </Text>
         </Text>
       </Flex>
-      <Link
-        to="https://innerstella.notion.site/1cb42a268e04803ba69bde083e43fbaf?pvs=4"
-        target="_blank"
-      >
-        <img src={QuestionIcon} alt="FAQ" />
-      </Link>
+      <Flex gap="3" align={"center"}>
+        <Link to="https://buymeacoffee.com/innerstella" target="_blank">
+          <IconButton variant="surface">
+            <Text size={"2"} wrap={"nowrap"}>
+              ☕️
+            </Text>
+          </IconButton>
+        </Link>
+        <Link
+          to="https://innerstella.notion.site/1cb42a268e04803ba69bde083e43fbaf?pvs=4"
+          target="_blank"
+        >
+          <IconButton variant="surface">
+            <Text size={"2"} wrap={"nowrap"}>
+              ❓
+            </Text>
+          </IconButton>
+        </Link>
+      </Flex>
     </header>
   )
 }
