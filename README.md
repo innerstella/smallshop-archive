@@ -1,54 +1,30 @@
-# React + TypeScript + Vite
+## [딸랑! : 소상공인 가게 찾기] 를 소개합니다!
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> 🔔 딸랑~ 트위터에서 보고 왔어요!
 
-Currently, two official plugins are available:
+트위터 맛집 검색기에 이어, 효녀들이 소개하는 우리 엄마 아빠의 가게를 한 눈에 모아볼 수 있는 사이트를 개발했습니다 :)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+딸랑구 넷이 함께 5일 만에 만든 서비스, 딸랑!
 
-## Expanding the ESLint configuration
+이번에도 지역만 검색해보세요 👐🏻
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+🔗 https://smallshop-archive.web.app/
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## FAQ
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> 어떤 데이터들인가요?
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+X에 올라가 있는 누군가의 부모님들이 운영하는 가게들 데이터 입니다.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+> 인증 마크는 뭐죠?
+
+네이버 지도를 기준으로 방문자 리뷰와 블로그 리뷰 개수가 500개 미만인 광고 아닌 가게들만 모아 인증 마크를 달았습니다.
+
+> 저도 등록하고 싶어요!
+
+[구글 폼 링크](https://forms.gle/3zFKjGsMBt163hPSA)를 통해서 작성해주세요!
+내부 검토를 거친 후에 사이트에 게시됩니다 :)
+
+> 어떤 지역들을 지원하나요?
+
+현재 경기도 지역만 등록되어 있고, 계속해서 추가될 예정입니다!
