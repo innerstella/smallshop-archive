@@ -8,14 +8,13 @@ import { CATEGORY } from "../../constants/category"
 import { SERVICE_STATE } from "../../constants/service"
 import { ServiceStateType } from "../../types/service.type"
 import { StoreCard } from "../../components/card"
-import { getShopData } from "../../apis/getShopData"
-import { StoreData } from "../../types/data.type"
 import { Banner } from "../../components/banner"
-import { Info } from "../../components/info"
 import { EmptyBox } from "../../components/empty"
 import { SearchInput } from "../../components/search"
 import { ServiceStateNav } from "../../components/nav/serviceState"
 import { CategoryNav } from "../../components/nav/category"
+import { useShopData } from "../../hooks/useShopData"
+import Template from "../../templates/Mobile"
 
 export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
@@ -26,10 +25,9 @@ export const MainPage = () => {
       ? CATEGORY.RESTAURANT
       : CATEGORY.FRUITS
   )
-  const [storeData, setStoreData] = useState<StoreData[]>([]) // 리스트 상태 추가
-  const [isLoading, setIsLoading] = useState(false)
-  const [search, setSearch] = useState("")
+  const { data: storeData, isLoading } = useShopData(serviceState, currCategory)
 
+  const [search, setSearch] = useState("")
   useEffect(() => {
     setCurrCategory(
       serviceState === SERVICE_STATE.OFFLINE
@@ -38,74 +36,56 @@ export const MainPage = () => {
     )
   }, [serviceState])
 
-  useEffect(() => {
-    console.log(search)
-  }, [search])
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true)
-
-      try {
-        const data: StoreData[] = await getShopData(serviceState, currCategory)
-        setStoreData(data || []) // 가져온 데이터를 상태에 저장
-      } catch (error) {
-        console.error("데이터 가져오기 실패:", error)
-      } finally {
-        setIsLoading(false)
-      }
-    }
-
-    fetchData()
-  }, [serviceState, currCategory])
-
   return (
-    <div className={MainWrapper}>
-      <Header />
-      <Spacer height={50} />
-      <Info />
-      <Spacer height={20} />
-      <SearchInput setSearch={setSearch} />
-      <Spacer height={10} />
-      <ServiceStateNav
-        serviceState={serviceState}
-        setServiceState={setServiceState}
-      />
-      <Spacer height={10} />
-      <CategoryNav
-        serviceState={serviceState}
-        currCategory={currCategory}
-        setCurrCategory={setCurrCategory}
-      />
-      <Spacer height={20} />
-      {isLoading ? (
-        <div className={ScrollWrapper}>
-          <Flex direction={"column"} justify={"center"} align={"center"}>
-            <Spacer height={200} />
-            <Spinner size="3" />
-          </Flex>
-        </div>
-      ) : (
-        <div className={ScrollWrapper}>
-          {storeData.filter((data) => data.address?.includes(search)).length >
-          0 ? (
-            storeData
-              .filter((data) => data.address?.includes(search))
-              .map((data) => (
-                <StoreCard
-                  key={data.mapLink}
-                  data={data}
-                  serviceState={serviceState}
-                />
-              ))
-          ) : (
-            <EmptyBox />
-          )}
-        </div>
-      )}
-      <Spacer height={30} />
-      <Banner />
-      <Spacer height={100} />
-    </div>
+    <Template>
+      <div className={MainWrapper}>
+        <Header />
+        <Spacer height={20} />
+        {/* <div className={`${headerStyle} ${isHidden ? hiddenStyle : ""}`}> */}
+        {/* <Info /> */}
+        <Spacer height={20} />
+        <SearchInput setSearch={setSearch} />
+        <Spacer height={10} />
+        <ServiceStateNav
+          serviceState={serviceState}
+          setServiceState={setServiceState}
+        />
+        <Spacer height={10} />
+        <CategoryNav
+          serviceState={serviceState}
+          currCategory={currCategory}
+          setCurrCategory={setCurrCategory}
+        />
+        <Spacer height={20} />
+        {isLoading ? (
+          <div className={ScrollWrapper}>
+            <Flex direction={"column"} justify={"center"} align={"center"}>
+              <Spacer height={200} />
+              <Spinner size="3" />
+            </Flex>
+          </div>
+        ) : (
+          <div className={ScrollWrapper}>
+            {(storeData || [])?.filter((data) => data.address?.includes(search))
+              ?.length > 0 ? (
+              storeData
+                ?.filter((data) => data.address?.includes(search))
+                .map((data) => (
+                  <StoreCard
+                    key={data.mapLink}
+                    data={data}
+                    serviceState={serviceState}
+                  />
+                ))
+            ) : (
+              <EmptyBox />
+            )}
+          </div>
+        )}
+        <Spacer height={30} />
+        <Banner />
+        <Spacer height={100} />
+      </div>
+    </Template>
   )
 }

@@ -19,3 +19,17 @@ export const ScrollWrapper = style({
   justifyContent: "start",
   alignItems: "center",
 })
+
+export const headerStyle = style({
+  position: "fixed",
+  top: 0,
+  width: "100%",
+  height: "60px",
+  backgroundColor: "white",
+  boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+  transition: "transform 0.3s ease-in-out",
+})
+
+export const hiddenStyle = style({
+  transform: "translateY(-100%)",
+})

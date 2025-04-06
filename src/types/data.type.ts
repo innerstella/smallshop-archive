@@ -8,4 +8,5 @@ export interface StoreData {
   mapLink: string // NOTE: 오프라인은 지도 링크, 온라인은 사이트 링크
   isVerified: boolean
   category: CategoryType
+  phone?: string
 }
