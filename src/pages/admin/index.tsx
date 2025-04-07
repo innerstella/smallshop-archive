@@ -112,61 +112,65 @@ export const AdminPage = () => {
         </Callout.Text>
       </Callout.Root>
       <Spacer height={10} />
-      <Flex gap={"5"} align={"center"}>
-        {/* 온/오프라인 선택 */}
-        <Text weight="bold" size="4" wrap={"nowrap"}>
-          온/오프라인 구분
-        </Text>
-        <Select.Root
-          size="3"
-          defaultValue="offlineShop"
-          onValueChange={setShopType}
-        >
-          <Select.Trigger />
-          <Select.Content>
-            <Select.Item value="offlineShop">오프라인</Select.Item>
-            <Select.Item value="onlineShop">온라인</Select.Item>
-          </Select.Content>
-        </Select.Root>
-        <Spacer height={20} />
-        {/* 카테고리 선택 */}
-        <Text weight="bold" size="4" wrap={"nowrap"}>
-          카테고리
-        </Text>
-        <Select.Root
-          size="3"
-          value={storeData.category}
-          onValueChange={(value) =>
-            setStoreData((prev) => ({
-              ...prev,
-              category: value as CategoryType,
-            }))
-          }
-        >
-          <Select.Trigger />
-          <Select.Content>
-            {CATEGORY_LIST[serviceState].map((category) => (
-              <Select.Item key={category} value={category}>
-                {category}
-              </Select.Item>
-            ))}
-          </Select.Content>
-        </Select.Root>
-        {/* 상호명 */}
-        <form onSubmit={(e) => checkAlreadyExist(e)}>
-          <Flex gap={"5"} align={"center"}>
-            <Text weight="bold" size="4" wrap={"nowrap"}>
-              상호명
-            </Text>
-            <input
-              ref={nameInputRef}
-              className={inputStyle}
-              name={storeData.name}
-              // onChange={handleChange}
-            />
-            <Button size={"3"}>등록된 가게인지 확인하기</Button>
-          </Flex>
-        </form>
+      <Flex justify={"center"} align={"start"} direction={"column"} gap={"5"}>
+        <Flex gap={"5"} align={"center"}>
+          {/* 온/오프라인 선택 */}
+          <Text weight="bold" size="4" wrap={"nowrap"}>
+            온/오프라인 구분
+          </Text>
+          <Select.Root
+            size="3"
+            defaultValue="offlineShop"
+            onValueChange={setShopType}
+          >
+            <Select.Trigger />
+            <Select.Content>
+              <Select.Item value="offlineShop">오프라인</Select.Item>
+              <Select.Item value="onlineShop">온라인</Select.Item>
+            </Select.Content>
+          </Select.Root>
+          <Spacer height={20} />
+          {/* 카테고리 선택 */}
+          <Text weight="bold" size="4" wrap={"nowrap"}>
+            카테고리
+          </Text>
+          <Select.Root
+            size="3"
+            value={storeData.category}
+            onValueChange={(value) =>
+              setStoreData((prev) => ({
+                ...prev,
+                category: value as CategoryType,
+              }))
+            }
+          >
+            <Select.Trigger />
+            <Select.Content>
+              {CATEGORY_LIST[serviceState].map((category) => (
+                <Select.Item key={category} value={category}>
+                  {category}
+                </Select.Item>
+              ))}
+            </Select.Content>
+          </Select.Root>
+        </Flex>
+        <Flex>
+          {/* 상호명 */}
+          <form onSubmit={(e) => checkAlreadyExist(e)}>
+            <Flex gap={"5"} align={"center"}>
+              <Text weight="bold" size="4" wrap={"nowrap"}>
+                상호명
+              </Text>
+              <input
+                ref={nameInputRef}
+                className={inputStyle}
+                name={storeData.name}
+                // onChange={handleChange}
+              />
+              <Button size={"3"}>등록된 가게인지 확인하기</Button>
+            </Flex>
+          </form>
+        </Flex>
       </Flex>
       <Spacer height={20} />
       {[

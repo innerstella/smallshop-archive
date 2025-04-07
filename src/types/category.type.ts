@@ -7,3 +7,4 @@ export type CategoryType =
   | "식품"
   | "위생용품"
   | "주방용품"
+  | "출장 서비스"

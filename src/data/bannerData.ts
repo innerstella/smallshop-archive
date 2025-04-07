@@ -1,8 +1,13 @@
 import BannerStella from "../assets/banner/stella.jpeg"
 import BannerHyunjae from "../assets/banner/hyunjae.jpeg"
 import BannerJJ from "../assets/banner/jangjun.webp"
+import BannerReview from "../assets/banner/review.jpg"
 
 export const BannerData = [
+  {
+    name: "review",
+    src: BannerReview,
+  },
   {
     name: "stella",
     src: BannerStella,

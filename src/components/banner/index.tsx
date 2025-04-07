@@ -22,14 +22,23 @@ export const Banner = () => {
         {BannerData.map((banner) => {
           return (
             <SwiperSlide key={banner.name}>
-              <Link to={banner.link} target="_blank">
+              {banner.link ? (
+                <Link to={banner.link} target="_blank">
+                  <img
+                    className={BannerImage}
+                    src={banner.src}
+                    alt={banner.name}
+                    style={{ objectFit: "cover" }}
+                  />
+                </Link>
+              ) : (
                 <img
                   className={BannerImage}
                   src={banner.src}
                   alt={banner.name}
                   style={{ objectFit: "cover" }}
                 />
-              </Link>
+              )}
             </SwiperSlide>
           )
         })}

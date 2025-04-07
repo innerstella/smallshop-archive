@@ -9,6 +9,7 @@ import GROCERY_ICON from "../assets/icon/shopping-cart.svg"
 import BUBBLE_ICON from "../assets/icon/bubble.svg"
 import RESTAURANT_ICON from "../assets/icon/restaurant.svg"
 import CHEF_ICON from "../assets/icon/chef.svg"
+import CAR_ICON from "../assets/icon/car.svg"
 
 export enum CATEGORY {
   RESTAURANT = "음식점",
@@ -19,10 +20,16 @@ export enum CATEGORY {
   FOOD = "식품",
   HYGIENE = "위생용품",
   KITCHENWARE = "주방용품",
+  VISIT = "출장 서비스",
 }
 
 export const CATEGORY_LIST: Record<ServiceStateType, CategoryType[]> = {
-  [SERVICE_STATE.OFFLINE]: [CATEGORY.RESTAURANT, CATEGORY.CAFE, CATEGORY.LIFE],
+  [SERVICE_STATE.OFFLINE]: [
+    CATEGORY.RESTAURANT,
+    CATEGORY.CAFE,
+    CATEGORY.LIFE,
+    CATEGORY.VISIT,
+  ],
   [SERVICE_STATE.ONLINE]: [
     CATEGORY.FRUITS,
     CATEGORY.DAILY_GOODS,
@@ -41,4 +48,5 @@ export const CATEGORY_ICON_LIST: Record<string, string> = {
   [CATEGORY.FOOD]: GROCERY_ICON,
   [CATEGORY.HYGIENE]: BUBBLE_ICON,
   [CATEGORY.KITCHENWARE]: CHEF_ICON,
+  [CATEGORY.VISIT]: CAR_ICON,
 }

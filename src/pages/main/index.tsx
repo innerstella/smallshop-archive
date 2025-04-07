@@ -42,14 +42,15 @@ export const MainPage = () => {
         <Header />
         <Spacer height={20} />
         {/* <div className={`${headerStyle} ${isHidden ? hiddenStyle : ""}`}> */}
-        {/* <Info /> */}
         <Spacer height={20} />
-        <SearchInput setSearch={setSearch} />
-        <Spacer height={10} />
-        <ServiceStateNav
-          serviceState={serviceState}
-          setServiceState={setServiceState}
-        />
+        <Flex justify={"between"} align={"center"} gap={"3"}>
+          <Spacer height={10} />
+          <ServiceStateNav
+            serviceState={serviceState}
+            setServiceState={setServiceState}
+          />
+          <SearchInput setSearch={setSearch} />
+        </Flex>
         <Spacer height={10} />
         <CategoryNav
           serviceState={serviceState}
@@ -84,7 +85,7 @@ export const MainPage = () => {
         )}
         <Spacer height={30} />
         <Banner />
-        <Spacer height={100} />
+        <Spacer height={60} />
       </div>
     </Template>
   )

@@ -7,6 +7,6 @@ export const BannerWrapper = style({
 export const BannerImage = style({
   maxWidth: "360px",
   width: "100%",
-  height: "85px",
+  height: "75px",
   borderRadius: "10px",
 })
