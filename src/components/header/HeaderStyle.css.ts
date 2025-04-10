@@ -5,4 +5,5 @@ export const HeaderWrapper = style({
   flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
+  paddingBottom: "16px",
 })

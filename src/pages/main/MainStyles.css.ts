@@ -3,15 +3,16 @@ import { style } from "@vanilla-extract/css"
 export const MainWrapper = style({
   display: "flex",
   flexDirection: "column",
-  padding: "30px 20px 0",
+  padding: "20px 20px 0",
   overflow: "hidden",
-  width: "100%",
   height: "100dvh",
+  width: "360px",
 })
 
 export const ScrollWrapper = style({
   width: "100%",
-  height: "100%",
+  height: "100dvh",
+  padding: "20px 0 10px",
   overflowY: "scroll",
   display: "flex",
   flexDirection: "column",
@@ -32,4 +33,8 @@ export const headerStyle = style({
 
 export const hiddenStyle = style({
   transform: "translateY(-100%)",
+})
+
+export const spacerStyle = style({
+  paddingTop: "10px",
 })

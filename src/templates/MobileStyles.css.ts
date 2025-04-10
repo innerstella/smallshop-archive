@@ -16,8 +16,10 @@ export const templateStyle = style({
 
 export const contentStyle = style({
   display: "flex",
+  flexDirection: "column",
   width: "100vw",
   justifyContent: "center",
+  alignItems: "center",
   background: "white",
   overflow: "hidden",
 
@@ -26,4 +28,19 @@ export const contentStyle = style({
       width: "400px",
     },
   },
+})
+
+export const appBarStyle = style({
+  width: "100%",
+  height: "50px",
+  backgroundColor: "#51A185",
+  display: "flex",
+  justifyContent: "space-around",
+  alignItems: "center",
+})
+
+export const ButtonStyle = style({
+  cursor: "pointer",
+  backgroundColor: "transparent",
+  border: "none",
 })
