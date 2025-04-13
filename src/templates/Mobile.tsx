@@ -6,6 +6,7 @@ import {
   templateStyle,
 } from "./MobileStyles.css"
 import { Appbar } from "../components/appbar"
+import DisplayAds from "../components/adsense"
 // import ListIcon from "../assets/icon/list.svg"
 // import BookIcon from "../assets/icon/book.svg"
 // import LocationIcon from "../assets/icon/location.svg"
@@ -21,6 +22,7 @@ const Template = ({ children }: TemplateProps) => {
   return (
     <div className={templateStyle}>
       <div className={contentStyle}>
+        <DisplayAds />
         {children}
         <Appbar />
       </div>
