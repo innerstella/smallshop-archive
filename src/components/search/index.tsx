@@ -8,7 +8,7 @@ interface SearchInputProps {
 
 export const SearchInput = ({ setSearch }: SearchInputProps) => {
   return (
-    <Box width={"100%"}>
+    <Box width={"100%"} pt={"2"}>
       <TextField.Root
         placeholder="장소를 입력하세요"
         onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

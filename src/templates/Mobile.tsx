@@ -5,6 +5,7 @@ import {
   contentStyle,
   templateStyle,
 } from "./MobileStyles.css"
+import { Appbar } from "../components/appbar"
 // import ListIcon from "../assets/icon/list.svg"
 // import BookIcon from "../assets/icon/book.svg"
 // import LocationIcon from "../assets/icon/location.svg"
@@ -21,17 +22,7 @@ const Template = ({ children }: TemplateProps) => {
     <div className={templateStyle}>
       <div className={contentStyle}>
         {children}
-        {/* <div className={appBarStyle}>
-          <button className={ButtonStyle} onClick={() => navigate("/")}>
-            <img className={ButtonStyle} src={ListIcon} alt="둘러보기" />
-          </button>
-          <button className={ButtonStyle} onClick={() => navigate("/banner")}>
-            <img src={BookIcon} alt="전단지 보기" />
-          </button>
-          <button className={ButtonStyle}>
-            <img src={LocationIcon} alt="지도로 보기" />
-          </button>
-        </div> */}
+        <Appbar />
       </div>
     </div>
   )

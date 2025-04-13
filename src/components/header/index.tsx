@@ -28,16 +28,6 @@ export const Header = () => {
             </Text>
           </IconButton>
         </Link>
-        <Link
-          to="https://innerstella.notion.site/1cb42a268e04803ba69bde083e43fbaf?pvs=4"
-          target="_blank"
-        >
-          <IconButton variant="surface">
-            <Text size={"2"} wrap={"nowrap"}>
-              ❓
-            </Text>
-          </IconButton>
-        </Link>
       </Flex>
     </header>
   )

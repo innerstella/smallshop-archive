@@ -1,6 +1,6 @@
 import { Flex, Spinner } from "@radix-ui/themes"
 import { Header } from "../../components/header"
-import { MainWrapper, ScrollWrapper, spacerStyle } from "./MainStyles.css"
+import { MainWrapper, ScrollWrapper } from "./MainStyles.css"
 import { useEffect, useState } from "react"
 import { Spacer } from "../../components/spacer"
 import { CategoryType } from "../../types/category.type"
@@ -8,7 +8,6 @@ import { CATEGORY } from "../../constants/category"
 import { SERVICE_STATE } from "../../constants/service"
 import { ServiceStateType } from "../../types/service.type"
 import { StoreCard } from "../../components/card"
-// import { Banner } from "../../components/banner"
 import { EmptyBox } from "../../components/empty"
 import { SearchInput } from "../../components/search"
 import { ServiceStateNav } from "../../components/nav/serviceState"
@@ -46,28 +45,24 @@ export const MainPage = () => {
     )
   }, [serviceState])
 
-  useEffect(() => {
-    console.log("Category changed:", currCategory)
-  }, [currCategory])
-  console.log(storeData)
   return (
     <Template>
       <div className={MainWrapper}>
         <Header />
+        <Banner />
+        <Spacer height={10} />
         <Flex gap="3">
           <ServiceStateNav
             serviceState={serviceState}
             setServiceState={setServiceState}
           />
-          <SearchInput setSearch={setSearch} />
-        </Flex>
-        <div className={spacerStyle}>
           <CategoryNav
             serviceState={serviceState}
             currCategory={currCategory}
             setCurrCategory={setCurrCategory}
           />
-        </div>
+        </Flex>
+        <SearchInput setSearch={setSearch} />
         {isLoading ? (
           <div className={ScrollWrapper}>
             <Flex direction={"column"} justify={"center"} align={"center"}>
@@ -93,10 +88,6 @@ export const MainPage = () => {
             )}
           </div>
         )}
-        <Spacer height={30} />
-        <Banner />
-
-        {/* <Spacer height={60} /> */}
       </div>
     </Template>
   )

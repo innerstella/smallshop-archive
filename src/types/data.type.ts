@@ -1,6 +1,7 @@
 import { CategoryType } from "./category.type"
 
 export interface StoreData {
+  id?: string // NOTE: firebase id
   name: string
   address?: string // NOTE: 오프라인에만 있음
   description: string

@@ -11,7 +11,7 @@ export const MainWrapper = style({
 
 export const ScrollWrapper = style({
   width: "100%",
-  height: "100dvh",
+  height: "100%",
   padding: "20px 0 10px",
   overflowY: "scroll",
   display: "flex",
@@ -33,8 +33,4 @@ export const headerStyle = style({
 
 export const hiddenStyle = style({
   transform: "translateY(-100%)",
-})
-
-export const spacerStyle = style({
-  paddingTop: "10px",
 })
