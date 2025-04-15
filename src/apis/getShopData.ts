@@ -11,6 +11,7 @@ import { ServiceStateType } from "../types/service.type"
 import { SERVICE_STATE } from "../constants/service"
 import { StoreData } from "../types/data.type"
 import { CategoryType } from "../types/category.type"
+import { shuffle } from "lodash"
 
 export const getShopData = async (
   serviceState: ServiceStateType,
@@ -27,10 +28,12 @@ export const getShopData = async (
 
     const querySnapshot = await getDocs(shopQuery)
 
-    return querySnapshot.docs.map((doc) => ({
+    const result = querySnapshot.docs.map((doc) => ({
       id: doc.id,
       ...(doc.data() as StoreData),
     }))
+
+    return shuffle(result)
   } catch (error) {
     console.error("Firestore 데이터 가져오기 오류:", error)
     return []
