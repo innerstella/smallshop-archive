@@ -9,6 +9,10 @@ export const appBarStyle = style({
   alignItems: "center",
 })
 
+export const underBarStyle = style({
+  borderBottom: "3px solid white",
+})
+
 export const ButtonStyle = style({
   cursor: "pointer",
   backgroundColor: "transparent",
