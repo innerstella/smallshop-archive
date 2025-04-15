@@ -1,5 +1,12 @@
 import { db } from "../firebase"
-import { collection, getDocs, query, where } from "firebase/firestore"
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore"
 import { ServiceStateType } from "../types/service.type"
 import { SERVICE_STATE } from "../constants/service"
 import { StoreData } from "../types/data.type"
@@ -54,5 +61,31 @@ export const getShopDataByName = async (
   } catch (error) {
     console.error("Firestore 데이터 가져오기 오류:", error)
     return []
+  }
+}
+
+export const getShopDataById = async (
+  serviceState: ServiceStateType,
+  docId: string
+): Promise<StoreData | null> => {
+  const collectionName =
+    serviceState === SERVICE_STATE.OFFLINE ? "offlineShop" : "onlineShop"
+
+  try {
+    const docRef = doc(db, collectionName, docId)
+    const docSnap = await getDoc(docRef)
+
+    if (docSnap.exists()) {
+      return {
+        id: docSnap.id,
+        ...(docSnap.data() as StoreData),
+      }
+    } else {
+      console.warn("해당 문서를 찾을 수 없습니다:", docId)
+      return null
+    }
+  } catch (error) {
+    console.error("Firestore에서 문서 가져오기 오류:", error)
+    return null
   }
 }

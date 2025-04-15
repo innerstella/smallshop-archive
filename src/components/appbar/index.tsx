@@ -8,11 +8,16 @@ export const Appbar = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  console.log(location.pathname)
-
   return (
     <div className={appBarStyle}>
-      <div className={location.pathname === "/" ? underBarStyle : ""}>
+      <div
+        className={
+          location.pathname === "/" ||
+          location.pathname.split("/")[1] === "detail"
+            ? underBarStyle
+            : ""
+        }
+      >
         <button className={ButtonStyle} onClick={() => navigate("/")}>
           <img className={ButtonStyle} src={ListIcon} alt="둘러보기" />
         </button>
