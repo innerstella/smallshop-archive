@@ -1,10 +1,12 @@
-import BannerStella from "../assets/banner/stella.jpeg"
+// import BannerStella from "../assets/banner/stella.jpeg"
 import BannerHyunjae from "../assets/banner/hyunjae.jpeg"
 import BannerJJ from "../assets/banner/jangjun.webp"
 import BannerReview from "../assets/banner/review.jpg"
 import BannerLoud1 from "../assets/banner/banner1.png"
 import BannerLoud2 from "../assets/banner/banner2.png"
 import BannerLoud3 from "../assets/banner/banner3.png"
+import BannerStore from "../assets/banner/store.jpg"
+import BannerApp from "../assets/banner/app.jpg"
 
 export const BannerData = [
   {
@@ -17,9 +19,8 @@ export const BannerData = [
     link: "https://www.loud.kr/news/event/79683?utm_source=tv&utm_medium=banner1",
   },
   {
-    name: "stella",
-    src: BannerStella,
-    link: "https://www.youtube.com/watch?v=7vOI5ngFvbM",
+    name: "store",
+    src: BannerStore,
   },
   {
     name: "라우드2",
@@ -40,5 +41,9 @@ export const BannerData = [
     name: "jangjun",
     src: BannerJJ,
     link: "https://youtube.com/@superstar_jangjun",
+  },
+  {
+    name: "app",
+    src: BannerApp,
   },
 ]

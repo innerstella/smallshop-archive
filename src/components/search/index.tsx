@@ -1,12 +1,10 @@
 import { Box, TextField } from "@radix-ui/themes"
 import SEARCH_ICON from "../../assets/icon/search.svg"
-import { Dispatch, SetStateAction } from "react"
+import { useSearchStore } from "../../stores/searchStore"
 
-interface SearchInputProps {
-  setSearch: Dispatch<SetStateAction<string>>
-}
+export const SearchInput = () => {
+  const { search, setSearch } = useSearchStore()
 
-export const SearchInput = ({ setSearch }: SearchInputProps) => {
   return (
     <Box width={"100%"} pt={"2"}>
       <TextField.Root
@@ -15,6 +13,7 @@ export const SearchInput = ({ setSearch }: SearchInputProps) => {
           setSearch(e.target.value)
         }
         size={"2"}
+        value={search}
       >
         <TextField.Slot>
           <img src={SEARCH_ICON} />

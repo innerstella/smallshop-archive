@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { appBarStyle, ButtonStyle, underBarStyle } from "./AppbarStyle.css"
 import ListIcon from "../../assets/icon/list.svg"
 import BookIcon from "../../assets/icon/book.svg"
-import ContactIcon from "../../assets/icon/contact.svg"
+import DeliveryIcon from "../../assets/icon/delivery.svg"
 
 export const Appbar = () => {
   const navigate = useNavigate()
@@ -27,9 +27,9 @@ export const Appbar = () => {
           <img src={BookIcon} alt="전단지 보기" />
         </button>
       </div>
-      <div className={location.pathname === "/contact" ? underBarStyle : ""}>
-        <button className={ButtonStyle} onClick={() => navigate("/contact")}>
-          <img src={ContactIcon} alt="문의사항" />
+      <div className={location.pathname === "/delivery" ? underBarStyle : ""}>
+        <button className={ButtonStyle} onClick={() => navigate("/delivery")}>
+          <img src={DeliveryIcon} alt="공공 배달 앱" />
         </button>
       </div>
     </div>

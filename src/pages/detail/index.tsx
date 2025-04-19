@@ -1,6 +1,5 @@
 import { Tweet } from "react-tweet"
 import { Link, useLocation } from "react-router-dom"
-import { Header } from "../../components/header"
 import { useShopDataById } from "../../hooks/useShopData"
 import Template from "../../templates/Mobile"
 import { MainWrapper, ScrollWrapper } from "./DetailStyle.css"
@@ -18,6 +17,7 @@ import VerifyIcon from "../../assets/icon/verify.svg"
 import { SERVICE_STATE } from "../../constants/service"
 import PhoneIcon from "../../assets/icon/phone.svg"
 import { Spacer } from "../../components/spacer"
+import { InfoCard } from "../../components/infoCard"
 
 export const DetailPage = () => {
   const location = useLocation()
@@ -33,30 +33,18 @@ export const DetailPage = () => {
   return (
     <Template>
       <div className={MainWrapper}>
-        <Header />
-        <Box pb={"3"}>
+        <Box pb={"5"}>
           <Flex justify={"between"}>
             <Link to="/">
               <IconButton>
                 <img src={BackIcon} alt="뒤로 가기" />
               </IconButton>
             </Link>
-            <RadixLink href={data.mapLink} target="_blank">
-              <Button>
-                <Text wrap="nowrap" truncate>
-                  {collectionName === SERVICE_STATE.OFFLINE
-                    ? "지도 앱 열기"
-                    : "사이트 바로가기"}
-                </Text>
-              </Button>
-            </RadixLink>
           </Flex>
         </Box>
-
-        <Spacer height={50} />
         <Flex direction="row" justify="between" align="start" gap="10px">
           <Flex gap="3px" align="center">
-            <Heading as="h1" size="7" weight="bold">
+            <Heading as="h1" size="6" weight="bold">
               {data.name}
             </Heading>
             {data.isVerified && data.twitterLink && (
@@ -72,26 +60,36 @@ export const DetailPage = () => {
               </a>
             )}
           </Flex>
+          <RadixLink href={data.mapLink} target="_blank">
+            <Button>
+              <Text wrap="nowrap" truncate>
+                {collectionName === SERVICE_STATE.OFFLINE
+                  ? "지도 앱 열기"
+                  : "사이트 바로가기"}
+              </Text>
+            </Button>
+          </RadixLink>
         </Flex>
         <Flex direction="column" align={"start"}>
           <Spacer height={20} />
-          <Heading as="h2" color="gray" size="5" wrap="nowrap">
+          <Heading as="h2" color="gray" size="4" wrap="nowrap">
             {data.description}
           </Heading>
           {data.address && (
             <>
               <Spacer height={5} />
-              <Text as="p" size="3" wrap="balance">
+              <Text as="p" size="3" wrap="balance" align={"left"}>
                 📍 {data.address}
               </Text>
             </>
           )}
         </Flex>
+        <InfoCard />
         <div className={ScrollWrapper}>
           {data.twitterLink ? (
             <Tweet id={data?.twitterLink.split("/").pop() || ""} />
           ) : (
-            <>트윗 정보 없음</>
+            <Box p={"9"}>트윗 정보 없음</Box>
           )}
         </div>
       </div>

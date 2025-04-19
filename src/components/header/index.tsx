@@ -21,6 +21,13 @@ export const Header = () => {
         </Text>
       </Flex>
       <Flex gap="3" align={"center"}>
+        <Link to="/contact">
+          <IconButton variant="surface">
+            <Text size={"2"} wrap={"nowrap"}>
+              ❓
+            </Text>
+          </IconButton>
+        </Link>
         <Link to="https://buymeacoffee.com/innerstella" target="_blank">
           <IconButton variant="surface">
             <Text size={"2"} wrap={"nowrap"}>

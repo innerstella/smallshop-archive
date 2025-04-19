@@ -66,9 +66,15 @@ export const ContactPage = () => {
                 <Text as="div" weight={"bold"} size="2">
                   😀 저도 등록하고 싶어요!
                 </Text>
-                <Text as="div" color="gray" size="2">
+                {/* <Text as="div" color="gray" size="2">
                   기존에 제출된 데이터들을 정리 중이예요. 이후에 구글폼을 통해
                   추가로 가게 정보 등록을 받을 예정이니 조금만 기다려주세요!
+                </Text> */}
+                <Text as="div" color="gray" size="2">
+                  <Link href="https://forms.gle/Pkm2YT7Ho9ccjks58">구글폼</Link>{" "}
+                  링크에 맞게 제출해주세요 :)
+                  <br />
+                  2차 데이터 등록 요청은 4월 20일 자정까지만 받을 예정입니다.
                 </Text>
               </Card>
             </Flex>

@@ -15,6 +15,7 @@ import { CategoryNav } from "../../components/nav/category"
 import { useShopData } from "../../hooks/useShopData"
 import Template from "../../templates/Mobile"
 import { Banner } from "../../components/banner"
+import { useSearchStore } from "../../stores/searchStore"
 
 export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
@@ -25,6 +26,9 @@ export const MainPage = () => {
       ? CATEGORY.RESTAURANT
       : CATEGORY.FRUITS
   )
+
+  const { search } = useSearchStore()
+
   const {
     data: storeData,
     isLoading,
@@ -34,8 +38,6 @@ export const MainPage = () => {
   useEffect(() => {
     refetch()
   }, [currCategory, refetch])
-
-  const [search, setSearch] = useState("")
 
   useEffect(() => {
     setCurrCategory(
@@ -62,7 +64,7 @@ export const MainPage = () => {
             setCurrCategory={setCurrCategory}
           />
         </Flex>
-        <SearchInput setSearch={setSearch} />
+        <SearchInput />
         {isLoading ? (
           <div className={ScrollWrapper}>
             <Flex direction={"column"} justify={"center"} align={"center"}>

@@ -4,6 +4,7 @@ import { AdminPage } from "./pages/admin"
 import { DiscoveryPage } from "./pages/discovery"
 import { ContactPage } from "./pages/contact"
 import { DetailPage } from "./pages/detail"
+import { DeliveryPage } from "./pages/delivery"
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
         <Route path="/detail/:serviceState/:id" element={<DetailPage />} />
         <Route path="/discovery" element={<DiscoveryPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/delivery" element={<DeliveryPage />} />
 
         {/* 관리자 */}
         <Route path="/stella/admin" element={<AdminPage />} />
