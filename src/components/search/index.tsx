@@ -1,9 +1,10 @@
-import { Box, TextField } from "@radix-ui/themes"
-import SEARCH_ICON from "../../assets/icon/search.svg"
-import { useSearchStore } from "../../stores/searchStore"
+import { Box, TextField } from "@radix-ui/themes";
+
+import SEARCH_ICON from "../../assets/icon/search.svg";
+import { useSearchStore } from "../../stores/searchStore";
 
 export const SearchInput = () => {
-  const { search, setSearch } = useSearchStore()
+  const { search, setSearch } = useSearchStore();
 
   return (
     <Box width={"100%"} pt={"2"}>
@@ -20,5 +21,5 @@ export const SearchInput = () => {
         </TextField.Slot>
       </TextField.Root>
     </Box>
-  )
-}
+  );
+};

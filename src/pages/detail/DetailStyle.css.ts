@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const MainWrapper = style({
   display: "flex",
@@ -7,10 +7,10 @@ export const MainWrapper = style({
   overflowY: "scroll",
   height: "100dvh",
   width: "360px",
-})
+});
 
 export const DividerStyle = style({
   border: "1px solid gray",
-})
+});
 
-export const ScrollWrapper = style({})
+export const ScrollWrapper = style({});

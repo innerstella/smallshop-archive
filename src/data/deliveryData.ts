@@ -1,4 +1,4 @@
-import { DELIVERY_APP, DeliveryData, REGION } from "../types/delivery.type"
+import { DELIVERY_APP, DeliveryData, REGION } from "../types/delivery.type";
 
 export const DeliveryAppData: Record<string, DeliveryData> = {
   [DELIVERY_APP.땡겨요]: {
@@ -75,7 +75,7 @@ export const DeliveryAppData: Record<string, DeliveryData> = {
     imgUrl:
       "https://www.atfis.or.kr/delivery/upload/1//20250324145605_575004448.jpg",
   },
-}
+};
 
 export const DeliveryList = [
   {
@@ -485,4 +485,4 @@ export const DeliveryList = [
       },
     ],
   },
-]
+];

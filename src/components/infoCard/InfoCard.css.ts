@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const Container = style({
   display: "flex",
@@ -10,11 +10,11 @@ export const Container = style({
   gap: "10px",
   cursor: "pointer",
   justifyContent: "space-between",
-})
+});
 
 export const plainLink = style({
   all: "unset", // ✅ 기본 스타일 전부 제거
   cursor: "pointer",
   color: "inherit",
   textDecoration: "none",
-})
+});

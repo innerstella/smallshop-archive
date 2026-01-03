@@ -1,11 +1,11 @@
-import { create } from "zustand"
-import { persist } from "zustand/middleware"
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
 
 type SearchStore = {
-  search: string
-  setSearch: (value: string) => void
-  reset: () => void
-}
+  search: string;
+  setSearch: (value: string) => void;
+  reset: () => void;
+};
 
 export const useSearchStore = create<SearchStore>()(
   persist(
@@ -16,6 +16,6 @@ export const useSearchStore = create<SearchStore>()(
     }),
     {
       name: "search-storage", // localStorage 키 이름
-    }
-  )
-)
+    },
+  ),
+);

@@ -1,18 +1,27 @@
-import { Button, Callout, Checkbox, Flex, Select, Text } from "@radix-ui/themes"
-import { Spacer } from "../../components/spacer"
-import { AdminWrapper, inputStyle } from "./AdminPageStyle.css"
-import { addDoc, collection, serverTimestamp } from "firebase/firestore"
-import { db } from "../../firebase"
-import { FormEvent, useEffect, useRef, useState } from "react"
-import { StoreData } from "../../types/data.type"
-import { CATEGORY_LIST } from "../../constants/category"
-import { CategoryType } from "../../types/category.type"
-import { getShopDataByName } from "../../apis/getShopData"
+import { FormEvent, useEffect, useRef, useState } from "react";
+
+import {
+  Button,
+  Callout,
+  Checkbox,
+  Flex,
+  Select,
+  Text,
+} from "@radix-ui/themes";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+
+import { getShopDataByName } from "../../apis/getShopData";
+import { Spacer } from "../../components/spacer";
+import { CATEGORY_LIST } from "../../constants/category";
+import { db } from "../../firebase";
+import { CategoryType } from "../../types/category.type";
+import { StoreData } from "../../types/data.type";
+import { AdminWrapper, inputStyle } from "./AdminPageStyle.css";
 
 export const AdminPage = () => {
-  const [shopType, setShopType] = useState("offlineShop")
-  const nameInputRef = useRef<HTMLInputElement>(null)
-  const serviceState = shopType === "offlineShop" ? "오프라인" : "온라인"
+  const [shopType, setShopType] = useState("offlineShop");
+  const nameInputRef = useRef<HTMLInputElement>(null);
+  const serviceState = shopType === "offlineShop" ? "오프라인" : "온라인";
   const [storeData, setStoreData] = useState<StoreData>({
     name: nameInputRef.current?.value || "",
     address: "",
@@ -22,31 +31,31 @@ export const AdminPage = () => {
     phone: "",
     isVerified: false,
     category: CATEGORY_LIST[serviceState][0],
-  })
+  });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target
-    setStoreData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setStoreData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleCheckboxChange = (checked: boolean | "indeterminate") => {
-    setStoreData((prev) => ({ ...prev, isVerified: checked === true }))
-  }
+    setStoreData((prev) => ({ ...prev, isVerified: checked === true }));
+  };
 
   useEffect(() => {
     setStoreData((prev) => ({
       ...prev,
       category: CATEGORY_LIST[serviceState][0], // 선택한 shopType의 첫 번째 카테고리로 초기화
-    }))
-  }, [shopType])
+    }));
+  }, [shopType]);
 
   const addData = async () => {
-    const isConfirmed = confirm(`입력된 데이터를 등록할까요?`)
-    if (!isConfirmed) return
+    const isConfirmed = confirm(`입력된 데이터를 등록할까요?`);
+    if (!isConfirmed) return;
 
     if (!nameInputRef.current?.value) {
-      alert("상호명을 입력해주세요")
-      return
+      alert("상호명을 입력해주세요");
+      return;
     }
 
     try {
@@ -54,41 +63,41 @@ export const AdminPage = () => {
         ...storeData,
         name: nameInputRef.current?.value,
         createdAt: serverTimestamp(),
-      })
+      });
 
-      alert("데이터가 성공적으로 등록되었습니다!")
+      alert("데이터가 성공적으로 등록되었습니다!");
 
       // 입력값 초기화
-      window.location.reload()
+      window.location.reload();
     } catch (error) {
-      console.error("데이터 추가 오류:", error)
+      console.error("데이터 추가 오류:", error);
     }
-  }
+  };
 
   const checkAlreadyExist = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    const inputName = nameInputRef.current?.value
+    const inputName = nameInputRef.current?.value;
 
     if (!inputName) {
-      alert("상호명을 입력해주세요!")
-      return
+      alert("상호명을 입력해주세요!");
+      return;
     }
 
     try {
       const data = await getShopDataByName(
         serviceState,
         storeData.category,
-        inputName
-      )
+        inputName,
+      );
 
       alert(
-        data.length > 0 ? "존재하는 상호명입니다." : "신규 등록 가능합니다."
-      )
+        data.length > 0 ? "존재하는 상호명입니다." : "신규 등록 가능합니다.",
+      );
     } catch (error) {
-      console.error("데이터 확인 오류", error)
+      console.error("데이터 확인 오류", error);
     }
-  }
+  };
 
   return (
     <div className={AdminWrapper}>
@@ -222,5 +231,5 @@ export const AdminPage = () => {
         등록하기
       </Button>
     </div>
-  )
-}
+  );
+};

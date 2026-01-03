@@ -1,34 +1,36 @@
-import { Tweet } from "react-tweet"
-import { Link, useLocation } from "react-router-dom"
-import { useShopDataById } from "../../hooks/useShopData"
-import Template from "../../templates/Mobile"
-import { MainWrapper, ScrollWrapper } from "./DetailStyle.css"
-import BackIcon from "../../assets/icon/back.svg"
+import { Link, useLocation } from "react-router-dom";
+import { Tweet } from "react-tweet";
+
 import {
+  Box,
   Button,
   Flex,
-  Link as RadixLink,
-  IconButton,
-  Text,
   Heading,
-  Box,
-} from "@radix-ui/themes"
-import VerifyIcon from "../../assets/icon/verify.svg"
-import { SERVICE_STATE } from "../../constants/service"
-import PhoneIcon from "../../assets/icon/phone.svg"
-import { Spacer } from "../../components/spacer"
-import { InfoCard } from "../../components/infoCard"
+  IconButton,
+  Link as RadixLink,
+  Text,
+} from "@radix-ui/themes";
+
+import BackIcon from "../../assets/icon/back.svg";
+import PhoneIcon from "../../assets/icon/phone.svg";
+import VerifyIcon from "../../assets/icon/verify.svg";
+import { InfoCard } from "../../components/infoCard";
+import { Spacer } from "../../components/spacer";
+import { SERVICE_STATE } from "../../constants/service";
+import { useShopDataById } from "../../hooks/useShopData";
+import Template from "../../templates/Mobile";
+import { MainWrapper, ScrollWrapper } from "./DetailStyle.css";
 
 export const DetailPage = () => {
-  const location = useLocation()
-  const pathParts = location.pathname.split("/")
+  const location = useLocation();
+  const pathParts = location.pathname.split("/");
   const collectionName =
-    pathParts[2] === "offline" ? SERVICE_STATE.OFFLINE : SERVICE_STATE.ONLINE
-  const docID = pathParts[3]
+    pathParts[2] === "offline" ? SERVICE_STATE.OFFLINE : SERVICE_STATE.ONLINE;
+  const docID = pathParts[3];
 
-  const { data } = useShopDataById(collectionName, docID)
+  const { data } = useShopDataById(collectionName, docID);
 
-  if (!data) return
+  if (!data) return;
 
   return (
     <Template>
@@ -94,5 +96,5 @@ export const DetailPage = () => {
         </div>
       </div>
     </Template>
-  )
-}
+  );
+};

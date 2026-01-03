@@ -1,9 +1,11 @@
-import { Autoplay, Navigation, Pagination } from "swiper/modules"
-import { BannerImage, BannerWrapper } from "./BannerStyle.css"
-import { Swiper, SwiperSlide } from "swiper/react"
-import { BannerData } from "../../data/bannerData"
-import { Link } from "react-router-dom"
-import "swiper/swiper-bundle.css"
+import { Link } from "react-router-dom";
+
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
+
+import { BannerData } from "../../data/bannerData";
+import { BannerImage, BannerWrapper } from "./BannerStyle.css";
 
 export const Banner = () => {
   const bannerSettings = {
@@ -14,7 +16,7 @@ export const Banner = () => {
       delay: 3000,
       disableOnInteraction: false,
     },
-  }
+  };
 
   return (
     <div className={BannerWrapper}>
@@ -40,9 +42,9 @@ export const Banner = () => {
                 />
               )}
             </SwiperSlide>
-          )
+          );
         })}
       </Swiper>
     </div>
-  )
-}
+  );
+};

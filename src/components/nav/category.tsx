@@ -1,14 +1,16 @@
-import { Box, TabNav } from "@radix-ui/themes"
-import { CATEGORY_ICON_LIST, CATEGORY_LIST } from "../../constants/category"
-import { Spacer } from "../spacer"
-import { ServiceStateType } from "../../types/service.type"
-import { CategoryType } from "../../types/category.type"
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction } from "react";
+
+import { Box, TabNav } from "@radix-ui/themes";
+
+import { CATEGORY_ICON_LIST, CATEGORY_LIST } from "../../constants/category";
+import { CategoryType } from "../../types/category.type";
+import { ServiceStateType } from "../../types/service.type";
+import { Spacer } from "../spacer";
 
 interface CategoryNavProps {
-  serviceState: ServiceStateType
-  currCategory: CategoryType
-  setCurrCategory: Dispatch<SetStateAction<CategoryType>>
+  serviceState: ServiceStateType;
+  currCategory: CategoryType;
+  setCurrCategory: Dispatch<SetStateAction<CategoryType>>;
 }
 
 export const CategoryNav = ({
@@ -34,9 +36,9 @@ export const CategoryNav = ({
               )}
               {category}
             </TabNav.Link>
-          )
+          );
         })}
       </TabNav.Root>
     </Box>
-  )
-}
+  );
+};

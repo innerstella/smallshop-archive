@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const templateStyle = style({
   display: "flex",
@@ -12,7 +12,7 @@ export const templateStyle = style({
       backgroundColor: "gray",
     },
   },
-})
+});
 
 export const contentStyle = style({
   display: "flex",
@@ -28,4 +28,4 @@ export const contentStyle = style({
       width: "400px",
     },
   },
-})
+});

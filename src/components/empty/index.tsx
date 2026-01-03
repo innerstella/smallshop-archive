@@ -1,7 +1,8 @@
-import { Spacer } from "../spacer"
-import { EmptyWrapper, IconStyle } from "./Empty.css"
-import EMPTY_ICON from "../../assets/icon/empty.svg"
-import { Text } from "@radix-ui/themes"
+import { Text } from "@radix-ui/themes";
+
+import EMPTY_ICON from "../../assets/icon/empty.svg";
+import { Spacer } from "../spacer";
+import { EmptyWrapper, IconStyle } from "./Empty.css";
 
 export const EmptyBox = () => {
   return (
@@ -14,5 +15,5 @@ export const EmptyBox = () => {
         <Text size="5">검색 결과 없음</Text>
       </div>
     </>
-  )
-}
+  );
+};

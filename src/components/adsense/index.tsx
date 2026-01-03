@@ -1,8 +1,8 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 
 declare global {
   interface Window {
-    adsbygoogle: unknown[] // ← 요거!
+    adsbygoogle: unknown[]; // ← 요거!
   }
 }
 
@@ -10,23 +10,23 @@ const DisplayAds = () => {
   useEffect(() => {
     const pushAd = () => {
       try {
-        window.adsbygoogle.push({})
+        window.adsbygoogle.push({});
       } catch (e) {
-        console.error(e)
+        console.error(e);
       }
-    }
+    };
 
     const interval = setInterval(() => {
       if (window.adsbygoogle) {
-        pushAd()
-        clearInterval(interval)
+        pushAd();
+        clearInterval(interval);
       }
-    }, 300)
+    }, 300);
 
     return () => {
-      clearInterval(interval)
-    }
-  }, [])
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <ins
@@ -37,7 +37,7 @@ const DisplayAds = () => {
       data-ad-format="auto"
       data-full-width-responsive="true"
     ></ins>
-  )
-}
+  );
+};
 
-export default DisplayAds
+export default DisplayAds;

@@ -1,28 +1,30 @@
+import { Link } from "react-router-dom";
+
 import {
   Box,
   Button,
   Card,
   Flex,
-  Link as RadixLink,
   IconButton,
+  Link as RadixLink,
   Text,
-} from "@radix-ui/themes"
-import { StoreData } from "../../types/data.type"
-import { Spacer } from "../spacer"
-import VerifyIcon from "../../assets/icon/verify.svg"
-import { ServiceStateType } from "../../types/service.type"
-import { SERVICE_STATE } from "../../constants/service"
-import PhoneIcon from "../../assets/icon/phone.svg"
-import { Link } from "react-router-dom"
-import { linkStyle } from "./CardStyle.css"
+} from "@radix-ui/themes";
+
+import PhoneIcon from "../../assets/icon/phone.svg";
+import VerifyIcon from "../../assets/icon/verify.svg";
+import { SERVICE_STATE } from "../../constants/service";
+import { StoreData } from "../../types/data.type";
+import { ServiceStateType } from "../../types/service.type";
+import { Spacer } from "../spacer";
+import { linkStyle } from "./CardStyle.css";
 
 interface StoreCardProps {
-  data: StoreData
-  serviceState: ServiceStateType
+  data: StoreData;
+  serviceState: ServiceStateType;
 }
 
 export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
-  const collectionName = serviceState === "오프라인" ? "offline" : "online"
+  const collectionName = serviceState === "오프라인" ? "offline" : "online";
 
   return (
     <Link to={`/detail/${collectionName}/${data.id}`} className={linkStyle}>
@@ -82,5 +84,5 @@ export const StoreCard = ({ data, serviceState }: StoreCardProps) => {
         </Card>
       </Box>
     </Link>
-  )
-}
+  );
+};

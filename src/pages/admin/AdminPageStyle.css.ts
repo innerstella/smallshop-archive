@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const AdminWrapper = style({
   padding: "30px",
@@ -8,7 +8,7 @@ export const AdminWrapper = style({
   width: "90vw",
   overflowY: "scroll",
   paddingBottom: "30px",
-})
+});
 
 export const inputStyle = style({
   width: "100%",
@@ -16,4 +16,4 @@ export const inputStyle = style({
   padding: "8px",
   border: "1px solid #ccc",
   borderRadius: "4px",
-})
+});

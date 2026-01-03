@@ -1,4 +1,4 @@
-import { Callout, Link } from "@radix-ui/themes"
+import { Callout, Link } from "@radix-ui/themes";
 
 export const Info = () => {
   return (
@@ -21,5 +21,5 @@ export const Info = () => {
         페이지의 데이터 기반으로 작성되었습니다.
       </Callout.Text>
     </Callout.Root>
-  )
-}
+  );
+};

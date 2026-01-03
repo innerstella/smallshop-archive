@@ -1,21 +1,21 @@
-import { style, keyframes } from "@vanilla-extract/css"
+import { keyframes, style } from "@vanilla-extract/css";
 
 const slideDown = keyframes({
   from: { height: "0" },
   to: { height: "var(--radix-accordion-content-height)" },
-})
+});
 
 const slideUp = keyframes({
   from: { height: "var(--radix-accordion-content-height)" },
   to: { height: "0" },
-})
+});
 
 export const root = style({
   borderRadius: "6px",
   width: "300px",
   border: "none",
   backgroundColor: "transparent",
-})
+});
 
 export const item = style({
   overflow: "hidden",
@@ -39,12 +39,12 @@ export const item = style({
       zIndex: 1,
     },
   },
-})
+});
 
 export const header = style({
   all: "unset",
   display: "flex",
-})
+});
 
 export const trigger = style({
   all: "unset",
@@ -61,7 +61,7 @@ export const trigger = style({
   color: "var(--jade-11)",
   borderBottom: "2px solid var(--jade-6)",
   marginBottom: "10px",
-})
+});
 
 export const content = style({
   overflow: "hidden",
@@ -78,11 +78,11 @@ export const content = style({
   flexDirection: "column",
   gap: "10px",
   border: "none",
-})
+});
 
 export const contentText = style({
   padding: "15px 20px",
-})
+});
 
 export const chevron = style({
   color: "var(--violet-10)",
@@ -92,4 +92,4 @@ export const chevron = style({
       transform: "rotate(180deg)",
     },
   },
-})
+});

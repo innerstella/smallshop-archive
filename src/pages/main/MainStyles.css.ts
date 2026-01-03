@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const MainWrapper = style({
   display: "flex",
@@ -7,7 +7,7 @@ export const MainWrapper = style({
   overflow: "hidden",
   height: "100dvh",
   width: "360px",
-})
+});
 
 export const ScrollWrapper = style({
   width: "100%",
@@ -19,7 +19,7 @@ export const ScrollWrapper = style({
   gap: "20px",
   justifyContent: "start",
   alignItems: "center",
-})
+});
 
 export const headerStyle = style({
   position: "fixed",
@@ -29,8 +29,8 @@ export const headerStyle = style({
   backgroundColor: "white",
   boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
   transition: "transform 0.3s ease-in-out",
-})
+});
 
 export const hiddenStyle = style({
   transform: "translateY(-100%)",
-})
+});

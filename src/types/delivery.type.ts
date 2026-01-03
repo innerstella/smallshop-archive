@@ -1,9 +1,9 @@
 export interface DeliveryData {
-  name: string
-  playStore: string
-  appStore: string
-  imgUrl: string
-  fee?: number
+  name: string;
+  playStore: string;
+  appStore: string;
+  imgUrl: string;
+  fee?: number;
 }
 
 export enum REGION {

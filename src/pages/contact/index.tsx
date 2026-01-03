@@ -1,7 +1,8 @@
-import { Blockquote, Box, Card, Flex, Link, Text } from "@radix-ui/themes"
-import { Header } from "../../components/header"
-import Template from "../../templates/Mobile"
-import { ContactWrapper, ScrollWrapper } from "./ContactStyle.css"
+import { Blockquote, Box, Card, Flex, Link, Text } from "@radix-ui/themes";
+
+import { Header } from "../../components/header";
+import Template from "../../templates/Mobile";
+import { ContactWrapper, ScrollWrapper } from "./ContactStyle.css";
 
 export const ContactPage = () => {
   return (
@@ -130,5 +131,5 @@ export const ContactPage = () => {
         </div>
       </div>
     </Template>
-  )
-}
+  );
+};

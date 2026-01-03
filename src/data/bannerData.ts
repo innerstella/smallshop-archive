@@ -1,12 +1,12 @@
 // import BannerStella from "../assets/banner/stella.jpeg"
-import BannerHyunjae from "../assets/banner/hyunjae.jpeg"
-import BannerJJ from "../assets/banner/jangjun.webp"
-import BannerReview from "../assets/banner/review.jpg"
-import BannerLoud1 from "../assets/banner/banner1.png"
-import BannerLoud2 from "../assets/banner/banner2.png"
-import BannerLoud3 from "../assets/banner/banner3.png"
-import BannerStore from "../assets/banner/store.jpg"
-import BannerApp from "../assets/banner/app.jpg"
+import BannerApp from "../assets/banner/app.jpg";
+import BannerLoud1 from "../assets/banner/banner1.png";
+import BannerLoud2 from "../assets/banner/banner2.png";
+import BannerLoud3 from "../assets/banner/banner3.png";
+import BannerHyunjae from "../assets/banner/hyunjae.jpeg";
+import BannerJJ from "../assets/banner/jangjun.webp";
+import BannerReview from "../assets/banner/review.jpg";
+import BannerStore from "../assets/banner/store.jpg";
 
 export const BannerData = [
   {
@@ -46,4 +46,4 @@ export const BannerData = [
     name: "app",
     src: BannerApp,
   },
-]
+];

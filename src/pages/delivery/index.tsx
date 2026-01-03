@@ -1,15 +1,6 @@
-import { Header } from "../../components/header"
-import Template from "../../templates/Mobile"
-import { AppLogoStyle, BadgeStyle, Coupon, MainWrapper } from "./Delivery.css"
-import BannerCoupon from "../../assets/banner/coupon.png"
-import AppStoreBadge from "../../assets/badge/app-store.svg"
-import PlayStoreBadge from "../../assets/badge/play-store.png"
+import { Link } from "react-router-dom";
 
-import { Link } from "react-router-dom"
-import { plainLink } from "../../components/infoCard/InfoCard.css"
-import * as Accordion from "@radix-ui/react-accordion"
-import { DeliveryList } from "../../data/deliveryData"
-import * as styles from "./Accordion.css"
+import * as Accordion from "@radix-ui/react-accordion";
 import {
   Blockquote,
   Box,
@@ -18,8 +9,18 @@ import {
   Heading,
   ScrollArea,
   Text,
-} from "@radix-ui/themes"
-import { Info } from "../../components/info"
+} from "@radix-ui/themes";
+
+import AppStoreBadge from "../../assets/badge/app-store.svg";
+import PlayStoreBadge from "../../assets/badge/play-store.png";
+import BannerCoupon from "../../assets/banner/coupon.png";
+import { Header } from "../../components/header";
+import { Info } from "../../components/info";
+import { plainLink } from "../../components/infoCard/InfoCard.css";
+import { DeliveryList } from "../../data/deliveryData";
+import Template from "../../templates/Mobile";
+import * as styles from "./Accordion.css";
+import { AppLogoStyle, BadgeStyle, Coupon, MainWrapper } from "./Delivery.css";
 
 export const DeliveryPage = () => {
   return (
@@ -106,24 +107,24 @@ export const DeliveryPage = () => {
                                     </Heading>
                                     <Flex direction={"column"}>
                                       {elem.benefit.map((benefit) => {
-                                        return <Text>‣ {benefit}</Text>
+                                        return <Text>‣ {benefit}</Text>;
                                       })}
                                     </Flex>
                                   </Flex>
                                 </Flex>
                               </Card>
                             </Box>
-                          )
+                          );
                         })}
                       </Flex>
                     </ScrollArea>
                   </Accordion.AccordionContent>
                 </Accordion.Item>
-              )
+              );
             })}
           </Accordion.Root>
         </ScrollArea>
       </div>
     </Template>
-  )
-}
+  );
+};

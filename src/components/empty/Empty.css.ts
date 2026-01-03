@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const EmptyWrapper = style({
   width: "350px",
@@ -7,8 +7,8 @@ export const EmptyWrapper = style({
   gap: "20px",
   alignContent: "center",
   justifyContent: "center",
-})
+});
 
 export const IconStyle = style({
   width: "100px",
-})
+});

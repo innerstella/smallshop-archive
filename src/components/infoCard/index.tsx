@@ -1,7 +1,9 @@
-import { Flex, Text } from "@radix-ui/themes"
-import { Container, plainLink } from "./InfoCard.css"
-import CursorIcon from "../../assets/icon/cursor.svg"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+import { Flex, Text } from "@radix-ui/themes";
+
+import CursorIcon from "../../assets/icon/cursor.svg";
+import { Container, plainLink } from "./InfoCard.css";
 
 export const InfoCard = () => {
   return (
@@ -18,5 +20,5 @@ export const InfoCard = () => {
         <img src={CursorIcon} alt="클릭" />
       </div>
     </Link>
-  )
-}
+  );
+};

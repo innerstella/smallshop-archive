@@ -1,11 +1,13 @@
-import { Select } from "@radix-ui/themes"
-import { SERVICE_STATE_LIST } from "../../constants/service"
-import { ServiceStateType } from "../../types/service.type"
-import { Dispatch, SetStateAction } from "react"
+import { Dispatch, SetStateAction } from "react";
+
+import { Select } from "@radix-ui/themes";
+
+import { SERVICE_STATE_LIST } from "../../constants/service";
+import { ServiceStateType } from "../../types/service.type";
 
 interface ServiceStateNavProps {
-  serviceState: ServiceStateType
-  setServiceState: Dispatch<SetStateAction<ServiceStateType>>
+  serviceState: ServiceStateType;
+  setServiceState: Dispatch<SetStateAction<ServiceStateType>>;
 }
 
 export const ServiceStateNav = ({
@@ -29,10 +31,10 @@ export const ServiceStateNav = ({
               >
                 {state}
               </Select.Item>
-            )
+            );
           })}
         </Select.Group>
       </Select.Content>
     </Select.Root>
-  )
-}
+  );
+};

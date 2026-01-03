@@ -1,15 +1,15 @@
-import { CategoryType } from "../types/category.type"
-import { ServiceStateType } from "../types/service.type"
-import { SERVICE_STATE } from "./service"
-import YARD_ICON from "../assets/icon/yard.svg"
-import MENU_BOOK_ICON from "../assets/icon/menu-book.svg"
-import CAFE_ICON from "../assets/icon/cafe.svg"
-import SHOPPING_CART_ICON from "../assets/icon/shopping-cart.svg"
-import GROCERY_ICON from "../assets/icon/shopping-cart.svg"
-import BUBBLE_ICON from "../assets/icon/bubble.svg"
-import RESTAURANT_ICON from "../assets/icon/restaurant.svg"
-import CHEF_ICON from "../assets/icon/chef.svg"
-import CAR_ICON from "../assets/icon/car.svg"
+import BUBBLE_ICON from "../assets/icon/bubble.svg";
+import CAFE_ICON from "../assets/icon/cafe.svg";
+import CAR_ICON from "../assets/icon/car.svg";
+import CHEF_ICON from "../assets/icon/chef.svg";
+import MENU_BOOK_ICON from "../assets/icon/menu-book.svg";
+import RESTAURANT_ICON from "../assets/icon/restaurant.svg";
+import SHOPPING_CART_ICON from "../assets/icon/shopping-cart.svg";
+import GROCERY_ICON from "../assets/icon/shopping-cart.svg";
+import YARD_ICON from "../assets/icon/yard.svg";
+import { CategoryType } from "../types/category.type";
+import { ServiceStateType } from "../types/service.type";
+import { SERVICE_STATE } from "./service";
 
 export enum CATEGORY {
   RESTAURANT = "음식점",
@@ -37,7 +37,7 @@ export const CATEGORY_LIST: Record<ServiceStateType, CategoryType[]> = {
     CATEGORY.HYGIENE,
     CATEGORY.KITCHENWARE,
   ],
-}
+};
 
 export const CATEGORY_ICON_LIST: Record<string, string> = {
   [CATEGORY.RESTAURANT]: RESTAURANT_ICON,
@@ -49,4 +49,4 @@ export const CATEGORY_ICON_LIST: Record<string, string> = {
   [CATEGORY.HYGIENE]: BUBBLE_ICON,
   [CATEGORY.KITCHENWARE]: CHEF_ICON,
   [CATEGORY.VISIT]: CAR_ICON,
-}
+};

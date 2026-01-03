@@ -1,19 +1,21 @@
-import { ReactNode } from "react"
+import { ReactNode } from "react";
+
+import DisplayAds from "../components/adsense";
+import { Appbar } from "../components/appbar";
 import {
   // appBarStyle,
   // ButtonStyle,
   contentStyle,
   templateStyle,
-} from "./MobileStyles.css"
-import { Appbar } from "../components/appbar"
-import DisplayAds from "../components/adsense"
+} from "./MobileStyles.css";
+
 // import ListIcon from "../assets/icon/list.svg"
 // import BookIcon from "../assets/icon/book.svg"
 // import LocationIcon from "../assets/icon/location.svg"
 // import { useNavigate } from "react-router-dom"
 
 interface TemplateProps {
-  children: ReactNode
+  children: ReactNode;
 }
 
 const Template = ({ children }: TemplateProps) => {
@@ -27,7 +29,7 @@ const Template = ({ children }: TemplateProps) => {
         <Appbar />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Template
+export default Template;

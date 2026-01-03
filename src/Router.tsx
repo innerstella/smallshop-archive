@@ -1,10 +1,11 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import { MainPage } from "./pages/main"
-import { AdminPage } from "./pages/admin"
-import { DiscoveryPage } from "./pages/discovery"
-import { ContactPage } from "./pages/contact"
-import { DetailPage } from "./pages/detail"
-import { DeliveryPage } from "./pages/delivery"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import { AdminPage } from "./pages/admin";
+import { ContactPage } from "./pages/contact";
+import { DeliveryPage } from "./pages/delivery";
+import { DetailPage } from "./pages/detail";
+import { DiscoveryPage } from "./pages/discovery";
+import { MainPage } from "./pages/main";
 
 const AppRouter = () => {
   return (
@@ -21,7 +22,7 @@ const AppRouter = () => {
         <Route path="/stella/admin" element={<AdminPage />} />
       </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

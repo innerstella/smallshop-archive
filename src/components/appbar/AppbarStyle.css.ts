@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const appBarStyle = style({
   width: "100%",
@@ -7,14 +7,14 @@ export const appBarStyle = style({
   display: "flex",
   justifyContent: "space-around",
   alignItems: "center",
-})
+});
 
 export const underBarStyle = style({
   borderBottom: "3px solid white",
-})
+});
 
 export const ButtonStyle = style({
   cursor: "pointer",
   backgroundColor: "transparent",
   border: "none",
-})
+});

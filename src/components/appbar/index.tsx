@@ -1,12 +1,13 @@
-import { useLocation, useNavigate } from "react-router-dom"
-import { appBarStyle, ButtonStyle, underBarStyle } from "./AppbarStyle.css"
-import ListIcon from "../../assets/icon/list.svg"
-import BookIcon from "../../assets/icon/book.svg"
-import DeliveryIcon from "../../assets/icon/delivery.svg"
+import { useLocation, useNavigate } from "react-router-dom";
+
+import BookIcon from "../../assets/icon/book.svg";
+import DeliveryIcon from "../../assets/icon/delivery.svg";
+import ListIcon from "../../assets/icon/list.svg";
+import { ButtonStyle, appBarStyle, underBarStyle } from "./AppbarStyle.css";
 
 export const Appbar = () => {
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
 
   return (
     <div className={appBarStyle}>
@@ -33,5 +34,5 @@ export const Appbar = () => {
         </button>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -1,4 +1,4 @@
-import { style } from "@vanilla-extract/css"
+import { style } from "@vanilla-extract/css";
 
 export const ContactWrapper = style({
   display: "flex",
@@ -7,9 +7,9 @@ export const ContactWrapper = style({
   overflow: "hidden",
   height: "100dvh",
   width: "360px",
-})
+});
 
 export const ScrollWrapper = style({
   height: "100%",
   overflowY: "scroll",
-})
+});

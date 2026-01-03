@@ -1,51 +1,53 @@
-import { Flex, Spinner } from "@radix-ui/themes"
-import { Header } from "../../components/header"
-import { MainWrapper, ScrollWrapper } from "./MainStyles.css"
-import { useEffect, useState } from "react"
-import { Spacer } from "../../components/spacer"
-import { CategoryType } from "../../types/category.type"
-import { CATEGORY } from "../../constants/category"
-import { SERVICE_STATE } from "../../constants/service"
-import { ServiceStateType } from "../../types/service.type"
-import { StoreCard } from "../../components/card"
-import { EmptyBox } from "../../components/empty"
-import { SearchInput } from "../../components/search"
-import { ServiceStateNav } from "../../components/nav/serviceState"
-import { CategoryNav } from "../../components/nav/category"
-import { useShopData } from "../../hooks/useShopData"
-import Template from "../../templates/Mobile"
-import { Banner } from "../../components/banner"
-import { useSearchStore } from "../../stores/searchStore"
+import { useEffect, useState } from "react";
+
+import { Flex, Spinner } from "@radix-ui/themes";
+
+import { Banner } from "../../components/banner";
+import { StoreCard } from "../../components/card";
+import { EmptyBox } from "../../components/empty";
+import { Header } from "../../components/header";
+import { CategoryNav } from "../../components/nav/category";
+import { ServiceStateNav } from "../../components/nav/serviceState";
+import { SearchInput } from "../../components/search";
+import { Spacer } from "../../components/spacer";
+import { CATEGORY } from "../../constants/category";
+import { SERVICE_STATE } from "../../constants/service";
+import { useShopData } from "../../hooks/useShopData";
+import { useSearchStore } from "../../stores/searchStore";
+import Template from "../../templates/Mobile";
+import { CategoryType } from "../../types/category.type";
+import { ServiceStateType } from "../../types/service.type";
+import { MainWrapper, ScrollWrapper } from "./MainStyles.css";
 
 export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
-    SERVICE_STATE.OFFLINE
-  )
+    SERVICE_STATE.OFFLINE,
+  );
   const [currCategory, setCurrCategory] = useState<CategoryType>(
     serviceState === SERVICE_STATE.OFFLINE
       ? CATEGORY.RESTAURANT
-      : CATEGORY.FRUITS
-  )
+      : CATEGORY.FRUITS,
+  );
 
-  const { search } = useSearchStore()
+  const { search } = useSearchStore();
 
   const {
     data: storeData,
     isLoading,
     refetch,
-  } = useShopData(serviceState, currCategory)
+  } = useShopData(serviceState, currCategory);
 
   useEffect(() => {
-    refetch()
-  }, [currCategory, refetch])
+    refetch();
+  }, [currCategory, refetch]);
 
   useEffect(() => {
     setCurrCategory(
       serviceState === SERVICE_STATE.OFFLINE
         ? CATEGORY.RESTAURANT
-        : CATEGORY.FRUITS
-    )
-  }, [serviceState])
+        : CATEGORY.FRUITS,
+    );
+  }, [serviceState]);
 
   return (
     <Template>
@@ -92,5 +94,5 @@ export const MainPage = () => {
         )}
       </div>
     </Template>
-  )
-}
+  );
+};

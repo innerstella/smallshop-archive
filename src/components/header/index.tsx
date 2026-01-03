@@ -1,7 +1,9 @@
-import { Flex, IconButton, Text } from "@radix-ui/themes"
-import StoreIcon from "../../assets/icon/store.svg"
-import { HeaderWrapper } from "./HeaderStyle.css"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+
+import { Flex, IconButton, Text } from "@radix-ui/themes";
+
+import StoreIcon from "../../assets/icon/store.svg";
+import { HeaderWrapper } from "./HeaderStyle.css";
 
 export const Header = () => {
   return (
@@ -37,5 +39,5 @@ export const Header = () => {
         </Link>
       </Flex>
     </header>
-  )
-}
+  );
+};
