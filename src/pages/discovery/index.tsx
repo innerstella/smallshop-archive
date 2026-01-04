@@ -10,11 +10,10 @@ import { Banner } from "../../components/banner";
 import { Header } from "../../components/header";
 import { CategoryNav } from "../../components/nav/category";
 import { ServiceStateNav } from "../../components/nav/serviceState";
-import { CATEGORY } from "../../constants/category";
 import { SERVICE_STATE } from "../../constants/service";
+import { useCurrCategory } from "../../hooks/useCurrCategory";
 import { useShopData } from "../../hooks/useShopData";
 import Template from "../../templates/Mobile";
-import { CategoryType } from "../../types/category.type";
 import { ServiceStateType } from "../../types/service.type";
 import {
   DiscoveryWrapper,
@@ -24,15 +23,10 @@ import {
 
 export const DiscoveryPage = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(true);
-
   const [serviceState, setServiceState] = useState<ServiceStateType>(
     SERVICE_STATE.OFFLINE,
   );
-  const [currCategory, setCurrCategory] = useState<CategoryType>(
-    serviceState === SERVICE_STATE.OFFLINE
-      ? CATEGORY.RESTAURANT
-      : CATEGORY.FRUITS,
-  );
+  const [currCategory, setCurrCategory] = useCurrCategory(serviceState);
   const {
     data: storeData,
     isLoading,
@@ -42,14 +36,6 @@ export const DiscoveryPage = () => {
   useEffect(() => {
     refetch();
   }, [currCategory, refetch]);
-
-  useEffect(() => {
-    setCurrCategory(
-      serviceState === SERVICE_STATE.OFFLINE
-        ? CATEGORY.RESTAURANT
-        : CATEGORY.FRUITS,
-    );
-  }, [serviceState]);
 
   return (
     <Template>

@@ -10,12 +10,11 @@ import { CategoryNav } from "../../components/nav/category";
 import { ServiceStateNav } from "../../components/nav/serviceState";
 import { SearchInput } from "../../components/search";
 import { Spacer } from "../../components/spacer";
-import { CATEGORY } from "../../constants/category";
 import { SERVICE_STATE } from "../../constants/service";
+import { useCurrCategory } from "../../hooks/useCurrCategory";
 import { useShopData } from "../../hooks/useShopData";
 import { useSearchStore } from "../../stores/searchStore";
 import Template from "../../templates/Mobile";
-import { CategoryType } from "../../types/category.type";
 import { ServiceStateType } from "../../types/service.type";
 import { MainWrapper, ScrollWrapper } from "./MainStyles.css";
 
@@ -23,11 +22,7 @@ export const MainPage = () => {
   const [serviceState, setServiceState] = useState<ServiceStateType>(
     SERVICE_STATE.OFFLINE,
   );
-  const [currCategory, setCurrCategory] = useState<CategoryType>(
-    serviceState === SERVICE_STATE.OFFLINE
-      ? CATEGORY.RESTAURANT
-      : CATEGORY.FRUITS,
-  );
+  const [currCategory, setCurrCategory] = useCurrCategory(serviceState);
 
   const { search } = useSearchStore();
 
@@ -40,14 +35,6 @@ export const MainPage = () => {
   useEffect(() => {
     refetch();
   }, [currCategory, refetch]);
-
-  useEffect(() => {
-    setCurrCategory(
-      serviceState === SERVICE_STATE.OFFLINE
-        ? CATEGORY.RESTAURANT
-        : CATEGORY.FRUITS,
-    );
-  }, [serviceState]);
 
   return (
     <Template>
