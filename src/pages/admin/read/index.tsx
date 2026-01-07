@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { Box, Button, Card, Flex, Link, Select, Spinner, Table, Text } from "@radix-ui/themes";
+import { Box, Button, Card, Flex, Link, Select, Spinner, Table, Text, TextField } from "@radix-ui/themes";
 
 import { Spacer } from "../../../components/spacer";
 import { SERVICE_STATE } from "../../../constants/service";
@@ -8,17 +8,31 @@ import { useShopData } from "../../../hooks/useShopData";
 import { ServiceStateType } from "../../../types/service.type";
 import { AdminReadWrapper } from "./AdminReadStyle.css";
 import { useNavigate } from "react-router-dom";
+import { StoreData } from "../../../types/data.type";
+import SEARCH_ICON from "../../../assets/icon/search.svg";
 
 export const AdminReadPage = () => {
   const navigate = useNavigate();
   const [serviceState, setServiceState] = useState<ServiceStateType>(
     SERVICE_STATE.OFFLINE,
   );
+  const [shopList, setShopList] = useState<StoreData[]>([]);
 
   const {
     data: storeData,
     isLoading,
   } = useShopData(serviceState); // category 없이 전체 데이터 가져오기
+  
+  useEffect(() => {
+    setShopList(storeData || []);
+  }, [storeData]);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+
+    const filteredShopList = storeData?.filter((data) => data.name.includes(value));
+    setShopList(filteredShopList || []);
+  };
 
   return (
     <div className={AdminReadWrapper}>
@@ -28,9 +42,6 @@ export const AdminReadPage = () => {
       <Spacer height={20} />
       <Flex gap="3" justify="between" align="center" mb="5">
         <Flex align="center" gap="3">
-        <Text weight="bold" size="4">
-          온/오프라인 구분
-        </Text>
         <Select.Root
           size="3"
           value={serviceState}
@@ -43,6 +54,13 @@ export const AdminReadPage = () => {
             <Select.Item value={SERVICE_STATE.ONLINE}>온라인</Select.Item>
           </Select.Content>
         </Select.Root>
+        <Box width="300px">
+          <TextField.Root placeholder="식당 이름을 검색하세요." size="3"  onChange={handleSearch}>
+            <TextField.Slot>
+              <img src={SEARCH_ICON} />
+            </TextField.Slot>
+          </TextField.Root>
+        </Box>
         </Flex>
         <Button size="3" onClick={() => navigate("/stella/admin/write")}>등록하기</Button>
       </Flex>
@@ -69,8 +87,8 @@ export const AdminReadPage = () => {
                 </Table.Row>
               </Table.Header>
               <Table.Body>
-                {storeData && storeData.length > 0 ? (
-                  storeData.map((data) => (
+                {shopList && shopList.length > 0 ? (
+                  shopList.map((data) => (
                     <Table.Row key={data.id || data.name}>
                       <Table.Cell>
                         <Text size="2" wrap='nowrap'>{data.id || "-"}</Text>
