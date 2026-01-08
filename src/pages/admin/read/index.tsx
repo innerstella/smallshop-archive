@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
-import { Box, Button, Card, Flex, Link, Select, Spinner, Table, Text, TextField } from "@radix-ui/themes";
-
+import { Box,  Card, Flex, Link, Select, Spinner, Table, Text, TextField } from "@radix-ui/themes";
+import { Button } from "@/components/ui/button"
 import { Spacer } from "../../../components/spacer";
 import { SERVICE_STATE } from "../../../constants/service";
 import { useShopData } from "../../../hooks/useShopData";
@@ -62,7 +62,7 @@ export const AdminReadPage = () => {
           </TextField.Root>
         </Box>
         </Flex>
-        <Button size="3" onClick={() => navigate("/stella/admin/write")}>등록하기</Button>
+        <Button variant="outline" onClick={() => navigate("/stella/admin/write")}>등록하기</Button>
       </Flex>
       <Spacer height={20} />
       {isLoading ? (
